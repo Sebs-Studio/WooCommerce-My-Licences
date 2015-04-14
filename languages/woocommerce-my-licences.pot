@@ -1,0 +1,104 @@
+# WordPress Plugin Boilerplate Copyright (c) {2014}
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce My Licences 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/seb86/WordPress-Plugin-Boilerplate/"
+"issues\n"
+"POT-Creation-Date: 2015-04-10 18:23+0100\n"
+"PO-Revision-Date: 2015-04-10 18:23+0100\n"
+"Last-Translator: WordPress Plugin Boilerplate <mailme@sebastiendumont.com>\n"
+"Language-Team: WP-Translations <wpt@wp-translations.org>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: templates/myaccount/my-licences.php:26
+msgid ""
+"Unable to deactivate at this time. If this error persist, please contact us. "
+"Thank you!"
+msgstr ""
+
+#: templates/myaccount/my-licences.php:29
+msgid "You have deactivated"
+msgstr ""
+
+#: templates/myaccount/my-licences.php:29
+msgid "successfully for"
+msgstr ""
+
+#: templates/myaccount/my-licences.php:46
+msgid "Product"
+msgstr ""
+
+#: templates/myaccount/my-licences.php:47
+msgid "Key"
+msgstr ""
+
+#: templates/myaccount/my-licences.php:48
+msgid "Software Version"
+msgstr ""
+
+#: templates/myaccount/my-licences.php:49
+msgid "Type"
+msgstr ""
+
+#: templates/myaccount/my-licences.php:50
+msgid "Activations Remaining"
+msgstr ""
+
+#: templates/myaccount/my-licences.php:73
+msgid "Single site licence"
+msgstr ""
+
+#: templates/myaccount/my-licences.php:74
+msgid "Up to five sites"
+msgstr ""
+
+#: templates/myaccount/my-licences.php:75
+msgid "Unlimited sites"
+msgstr ""
+
+#: templates/myaccount/my-licences.php:99
+msgid "Deactivate"
+msgstr ""
+
+#: templates/myaccount/my-licences.php:110
+msgid "You have no licences."
+msgstr ""
+
+#: woocommerce-my-licences.php:150 woocommerce-my-licences.php:162
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: woocommerce-my-licences.php:253
+#, php-format
+msgid "Sorry, <strong>%s</strong> requires WordPress "
+msgstr ""
+
+#: woocommerce-my-licences.php:264
+#, php-format
+msgid ""
+"Sorry, <strong>%s</strong> requires WooCommerce to be installed and "
+"activated first. Please <a href=\"%s\">install WooCommerce</a>."
+msgstr ""
+
+#: woocommerce-my-licences.php:275
+#, php-format
+msgid "Sorry, <strong>%s</strong> requires WooCommerce "
+msgstr ""
+
+#: woocommerce-my-licences.php:286
+#, php-format
+msgid ""
+"Sorry, <strong>%s</strong> requires WooCommerce Software Add-on to be "
+"installed and activated first."
+msgstr ""
