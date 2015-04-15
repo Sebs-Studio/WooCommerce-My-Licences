@@ -12,7 +12,7 @@ PLUGINNAME=`grep "Plugin Name:" "$GITPATH/$MAINFILE" | awk -F' ' '{print $4$5$6$
 # svn config
 SVNPATH="/tmp/$PLUGINSLUG" # path to a temp SVN repo. No trailing slash required and don't add trunk.
 SVNURL="http://plugins.svn.wordpress.org/$PLUGINSLUG" # Remote SVN repo on wordpress.org, with no trailing slash
-SVNUSER="sebd86" # your svn username (case sensitive)
+SVNUSER="sebsstudio" # your svn username (case sensitive)
 
 # Let's begin...
 echo "....................................................."
