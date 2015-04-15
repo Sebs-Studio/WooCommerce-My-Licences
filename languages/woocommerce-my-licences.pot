@@ -1,12 +1,12 @@
-# WordPress Plugin Boilerplate Copyright (c) {2014}
+# WooCommerce My Licences Copyright (c) {2015}
 msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce My Licences 1.0.0\n"
-"Report-Msgid-Bugs-To: https://github.com/seb86/WordPress-Plugin-Boilerplate/"
+"Report-Msgid-Bugs-To: https://github.com/Sebs-Studio/WooCommerce-My-Licences/"
 "issues\n"
 "POT-Creation-Date: 2015-04-10 18:23+0100\n"
-"PO-Revision-Date: 2015-04-10 18:23+0100\n"
-"Last-Translator: WordPress Plugin Boilerplate <mailme@sebastiendumont.com>\n"
+"PO-Revision-Date: 2015-04-15 06:53+0100\n"
+"Last-Translator: WooCommerce My Licences <mailme@sebastiendumont.com>\n"
 "Language-Team: WP-Translations <wpt@wp-translations.org>\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
