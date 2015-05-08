@@ -1,6 +1,6 @@
 ## WooCommerce My Licences
 
-[![Designed for WooCommerce](http://img.shields.io/badge/Designed%20for-WooCommerce-a46497.svg?style=flat)](http://woothemes.com/woocommerce/) [![GitHub license](https://img.shields.io/badge/license-GPLv3-blue.svg?style=flat)](https://raw.githubusercontent.com/Sebs-Studio/WooCommerce-My-Licences/master/license.txt) [![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/Sebs-Studio/WooCommerce-My-Licences) [![Code Climate](https://codeclimate.com/github/Sebs-Studio/WooCommerce-Coming-Soon/badges/gpa.svg?style=flat)](https://codeclimate.com/github/Sebs-Studio/WooCommerce-Coming-Soon)
+[![Designed for WooCommerce](http://img.shields.io/badge/Designed%20for-WooCommerce-a46497.svg?style=flat)](http://woothemes.com/woocommerce/) [![GitHub license](https://img.shields.io/badge/license-GPLv3-blue.svg?style=flat)](https://raw.githubusercontent.com/Sebs-Studio/WooCommerce-My-Licences/master/license.txt) [![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg?style=flat)](https://github.com/Sebs-Studio/WooCommerce-My-Licences) [![Code Climate](https://codeclimate.com/github/Sebs-Studio/WooCommerce-My-Licences/badges/gpa.svg?style=flat)](https://codeclimate.com/github/Sebs-Studio/WooCommerce-My-Licences)
 
 > ### Required to Work
 > This plugin requires the use of [WooCommerce Software Add-on](http://www.woothemes.com/products/software-add-on/)
