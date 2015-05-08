@@ -30,8 +30,9 @@ If you need help with customization. Please consider [hiring me](http://www.seba
 
 Please also consider making a [donation](http://www.sebastiendumont.com/donation/) or [write a review](https://wordpress.org/support/view/plugin-reviews/woocommerce-my-licences?rate=5#postform).
 
-** More information **
-- Other [WordPress plugins](http://profiles.wordpress.org/sebd86/) by [Sébastien Dumont](http://www.sebastiendumont.com/)
+**More information**
+
+- Other [WordPress plugins](http://profiles.wordpress.org/sebsstudio/) by [Sebs Studio](http://www.sebs-studio.com/)
 - Contact Sebastien on Twitter: [@sebsstudio](http://twitter.com/sebsstudio)
 - If you're a developer yourself, follow or contribute to the [WooCommerce My Licences plugin on GitHub](https://github.com/Sebs-Studio/WooCommerce-My-Licences)
 
