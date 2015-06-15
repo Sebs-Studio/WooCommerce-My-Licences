@@ -1,12 +1,14 @@
 <?php
 /*
  * Plugin Name:       WooCommerce My Licences
- * Plugin URI:        http://www.sebs-studio.com
+ * Plugin URI:        https://wordpress.org/plugins/woocommerce-my-licences/
  * Description:       Displays the end-users licence keys in a table. Simply place a shortcode on a new page and any software your customers have purchased will have access to the licence keys once logged in. Requires WooCommerce Software Add-On
- * Version:           1.0.0
- * Author:            Sebastien Dumont
- * Author URI:        http://www.sebastiendumont.com
- * Text Domain:       woocommerce-my-licences
+ * Version:           1.0.1
+ * Author:            Sebs Studio
+ * Author URI:        http://www.sebs-studio.com
+ * Developer:         Sébastien Dumont
+ * Developer URI:     http://www.sebastiendumont.com
+ * Text Domain:       ss-wc-my-licences
  * Domain Path:       languages
  * Network:           false
  * GitHub Plugin URI: https://github.com/Sebs-Studio/WooCommerce-My-Licences
@@ -24,20 +26,20 @@
  * along with WooCommerce My Licences.
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package WooCommerce_My_Licences
+ * @package SS_WC_My_Licences
  * @author  Sebs Studio
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-if ( ! class_exists( 'WooCommerce_My_Licences' ) ) {
+if ( ! class_exists( 'SS_WC_My_Licences' ) ) {
 
 /**
- * Main WooCommerce_My_Licences Class
+ * Main SS_WC_My_Licences Class
  *
  * @since 1.0.0
  */
-final class WooCommerce_My_Licences {
+final class SS_WC_My_Licences {
 
 	/**
 	 * The single instance of the class
@@ -55,7 +57,7 @@ final class WooCommerce_My_Licences {
 	 * @access public
 	 * @var    string
 	 */
-	public $plugin_slug = 'woocommerce_my_licences';
+	public $plugin_slug = 'ss_wc_my_licences';
 
 	/**
 	 * Text Domain
@@ -64,7 +66,7 @@ final class WooCommerce_My_Licences {
 	 * @access public
 	 * @var    string
 	 */
-	public $text_domain = 'woocommerce-my-licences';
+	public $text_domain = 'ss-wc-my-licences';
 
 	/**
 	 * The Plugin Name.
@@ -89,7 +91,7 @@ final class WooCommerce_My_Licences {
 	 *
 	 * @var string
 	 */
-	public $wp_version_min = "4.1";
+	public $wp_version_min = "4.0";
 
 	/**
 	 * The WooCommerce version this extension requires minimum.
@@ -108,28 +110,18 @@ final class WooCommerce_My_Licences {
 	public $manage_plugin = "manage_options";
 
 	/**
-	 * This determins if the seller is selling 
-	 * software with variable licenses.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @var    boolean
-	 */
-	public $variation_licence_types = false;
-
-	/**
 	 * Main WooCommerce My Licences Instance
 	 *
 	 * Ensures only one instance of WooCommerce My Licences is loaded or can be loaded.
 	 *
 	 * @since  1.0.0
 	 * @access public static
-	 * @see    WooCommerce_My_Licences()
+	 * @see    SS_WC_My_Licences()
 	 * @return WooCommerce My Licences instance
 	 */
 	public static function instance() {
 		if ( is_null( self::$_instance ) ) {
-			self::$_instance = new WooCommerce_My_Licences;
+			self::$_instance = new SS_WC_My_Licences;
 		}
 
 		return self::$_instance;
@@ -147,7 +139,7 @@ final class WooCommerce_My_Licences {
 	 */
 	public function __clone() {
 		// Cloning instances of the class is forbidden
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'woocommerce-my-licences' ), $this->version );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'ss-wc-my-licences' ), $this->version );
 	} // END __clone()
 
 	/**
@@ -159,7 +151,7 @@ final class WooCommerce_My_Licences {
 	 */
 	public function __wakeup() {
 		// Unserializing instances of the class is forbidden
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'woocommerce-my-licences' ), $this->version );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'ss-wc-my-licences' ), $this->version );
 	} // END __wakeup()
 
 	/**
@@ -180,9 +172,8 @@ final class WooCommerce_My_Licences {
 		$this->includes();
 
 		// Hooks
-		add_action( 'init', array( $this, 'init_woocommerce_my_licences' ), 0 );
-		add_filter( 'woocommerce_locate_template',  array( $this, 'locate_template' ), 20, 3 );
-		add_action( 'woocommerce_my_licences_init', array( 'WC_My_Licence_Shortcode', 'init' ) );
+		add_action( 'init',                        array( $this, 'init_woocommerce_my_licences' ), 0 );
+		add_filter( 'woocommerce_locate_template', array( $this, 'locate_template' ),              20, 3 );
 	} // END __construct()
 
 	/**
@@ -197,7 +188,6 @@ final class WooCommerce_My_Licences {
 		if ( ! defined( 'WOOCOMMERCE_MY_LICENCES_VERSION' ) )             define( 'WOOCOMMERCE_MY_LICENCES_VERSION', $this->version );
 		if ( ! defined( 'WOOCOMMERCE_MY_LICENCES_WP_VERSION_REQUIRE' ) )  define( 'WOOCOMMERCE_MY_LICENCES_WP_VERSION_REQUIRE', $this->wp_version_min );
 		if ( ! defined( 'WOOCOMMERCE_MY_LICENCES_WOO_VERSION_REQUIRE' ) ) define( 'WOOCOMMERCE_MY_LICENCES_WOO_VERSION_REQUIRE', $this->woo_version_min );
-		if ( ! defined( 'WOOCOMMERCE_MY_LICENCES_VARIABLES' ) )           define( 'WOOCOMMERCE_MY_LICENCES_VARIABLES', $this->variation_licence_types );
 	} // END define_constants()
 
 	/**
@@ -211,11 +201,11 @@ final class WooCommerce_My_Licences {
 	private function check_requirements() {
 		global $wp_version, $woocommerce;
 
-		$woo_version_installed = get_option( 'woocommerce_version' );
+		$wc_version = get_option( 'woocommerce_version' );
 
-		if( empty( $woo_version_installed ) ) { $woo_version_installed = WOOCOMMERCE_VERSION; }
+		if( empty( $wc_version ) ) { $wc_version = WOOCOMMERCE_VERSION; }
 
-		define( 'WOOCOMMERCE_MY_LICENCES_WOOVERSION', $woo_version_installed );
+		define( 'WOOCOMMERCE_MY_LICENCES_WOOVERSION', $wc_version );
 
 		if ( !version_compare( $wp_version, WOOCOMMERCE_MY_LICENCES_WP_VERSION_REQUIRE, '>=' ) ) {
 			add_action( 'admin_notices', array( $this, 'display_req_notice' ) );
@@ -250,7 +240,7 @@ final class WooCommerce_My_Licences {
 	 */
 	static function display_req_notice() {
 		echo '<div id="message" class="error"><p>';
-		echo sprintf( __( 'Sorry, <strong>%s</strong> requires WordPress ' . WOOCOMMERCE_MY_LICENCES_WP_VERSION_REQUIRE . ' or higher. Please upgrade your WordPress setup', 'woocommerce_my_licences' ), WOOCOMMERCE_MY_LICENCES );
+		echo sprintf( __( 'Sorry, <strong>%s</strong> requires WordPress ' . WOOCOMMERCE_MY_LICENCES_WP_VERSION_REQUIRE . ' or higher. Please upgrade your WordPress setup', 'ss-wc-my-licences' ), WOOCOMMERCE_MY_LICENCES );
 		echo '</p></div>';
 	}
 
@@ -261,7 +251,7 @@ final class WooCommerce_My_Licences {
 	 */
 	static function display_req_woo_not_active_notice() {
 		echo '<div id="message" class="error"><p>';
-		echo sprintf( __( 'Sorry, <strong>%s</strong> requires WooCommerce to be installed and activated first. Please <a href="%s">install WooCommerce</a>.', 'woocommerce_my_licences' ), WOOCOMMERCE_MY_LICENCES, admin_url( 'plugin-install.php?tab=search&type=term&s=WooCommerce' ) );
+		echo sprintf( __( 'Sorry, <strong>%s</strong> requires WooCommerce to be installed and activated first. Please <a href="%s">install WooCommerce</a>.', 'ss-wc-my-licences' ), WOOCOMMERCE_MY_LICENCES, admin_url( 'plugin-install.php?tab=search&type=term&s=WooCommerce' ) );
 		echo '</p></div>';
 	}
 
@@ -272,7 +262,7 @@ final class WooCommerce_My_Licences {
 	 */
 	static function display_req_woo_notice() {
 		echo '<div id="message" class="error"><p>';
-		echo sprintf( __( 'Sorry, <strong>%s</strong> requires WooCommerce ' . WOOCOMMERCE_MY_LICENCES_WOO_VERSION_REQUIRE . ' or higher. Please update WooCommerce for %s to work.', 'woocommerce_my_licences' ), WOOCOMMERCE_MY_LICENCES, WOOCOMMERCE_MY_LICENCES );
+		echo sprintf( __( 'Sorry, <strong>%s</strong> requires WooCommerce ' . WOOCOMMERCE_MY_LICENCES_WOO_VERSION_REQUIRE . ' or higher. Please update WooCommerce for %s to work.', 'ss-wc-my-licences' ), WOOCOMMERCE_MY_LICENCES, WOOCOMMERCE_MY_LICENCES );
 		echo '</p></div>';
 	}
 
@@ -283,7 +273,7 @@ final class WooCommerce_My_Licences {
 	 */
 	static function display_req_woo_software_notice() {
 		echo '<div id="message" class="error"><p>';
-		echo sprintf( __( 'Sorry, <strong>%s</strong> requires WooCommerce Software Add-on to be installed and activated first.', 'woocommerce_my_licences' ), WOOCOMMERCE_MY_LICENCES );
+		echo sprintf( __( 'Sorry, <strong>%s</strong> requires WooCommerce Software Add-on to be installed and activated first.', 'ss-wc-my-licences' ), WOOCOMMERCE_MY_LICENCES );
 		echo '</p></div>';
 	}
 
@@ -295,16 +285,10 @@ final class WooCommerce_My_Licences {
 	 * @return void
 	 */
 	public function includes() {
-		//$woocommerce_path = str_replace( '-my-licences', '', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
-		//include_once( $woocommerce_path . '/includes/class-wc-shortcodes.php' );
-		//$wc_shortcodes = new WC_Shortcodes();
-
 		if ( ! is_admin() || defined( 'DOING_AJAX' ) ) {
 			$this->frontend_includes();
 		}
 	} // END includes()
-
-	//public function woocommerce_my_licences( $atts ) { echo 'Hi'; }
 
 	/**
 	 * Include required frontend files.
@@ -315,6 +299,8 @@ final class WooCommerce_My_Licences {
 	 */
 	public function frontend_includes() {
 		include_once( 'includes/shortcode.php' );
+
+		add_action( 'woocommerce_my_licences_init', array( 'SS_WC_My_Licence_Shortcode', 'init' ) );
 	} // END frontend_includes()
 
 	/**
@@ -326,9 +312,6 @@ final class WooCommerce_My_Licences {
 	public function init_woocommerce_my_licences() {
 		// Set up localisation
 		$this->load_plugin_textdomain();
-
-		// Init action
-		do_action( 'woocommerce_my_licences_init' );
 	} // END init_woocommerce_my_licences()
 
 	/**
@@ -349,22 +332,22 @@ final class WooCommerce_My_Licences {
 		$lang_dir = apply_filters( 'woocommerce_my_licences_languages_directory', $lang_dir );
 
 		// Traditional WordPress plugin locale filter
-		$locale = apply_filters( 'plugin_locale',  get_locale(), 'woocommerce_my_licences' );
-		$mofile = sprintf( '%1$s-%2$s.mo', 'woocommerce_my_licences', $locale );
+		$locale = apply_filters( 'plugin_locale',  get_locale(), 'ss-wc-my-licences' );
+		$mofile = sprintf( '%1$s-%2$s.mo', 'ss-wc-my-licences', $locale );
 
 		// Setup paths to current locale file
 		$mofile_local  = $lang_dir . $mofile;
-		$mofile_global = WP_LANG_DIR . '/' . 'woocommerce_my_licences' . '/' . $mofile;
+		$mofile_global = WP_LANG_DIR . '/' . 'ss-wc-my-licences' . '/' . $mofile;
 
 		if ( file_exists( $mofile_global ) ) {
 			// Look in global /wp-content/languages/plugin-name/ folder
-			load_textdomain( 'woocommerce_my_licences', $mofile_global );
+			load_textdomain( 'ss-wc-my-licences', $mofile_global );
 		} else if ( file_exists( $mofile_local ) ) {
 			// Look in local /wp-content/plugins/plugin-name/languages/ folder
-			load_textdomain( 'woocommerce_my_licences', $mofile_local );
+			load_textdomain( 'ss-wc-my-licences', $mofile_local );
 		} else {
 			// Load the default language files
-			load_plugin_textdomain( 'woocommerce_my_licences', false, $lang_dir );
+			load_plugin_textdomain( 'ss-wc-my-licences', false, $lang_dir );
 		}
 
 	} // END load_plugin_textdomain()
@@ -382,10 +365,6 @@ final class WooCommerce_My_Licences {
 	public function locate_template( $template, $template_name, $template_path ) {
 		// Temp holder
 		$_template = $template;
-
-		/*if ( ! $template_path ) {
-			$template_path = WC()->template_path();
-		}*/
 
 		// Set our base path
 		$plugin_path = $this->template_path();
@@ -448,21 +427,19 @@ final class WooCommerce_My_Licences {
 		return apply_filters( 'woocommerce_my_licences_template_path', $this->plugin_path() . '/templates/' );
 	} // END template_path()
 
-} // END WooCommerce_My_Licences()
+} // END SS_WC_My_Licences()
 
-} // END class_exists('WooCommerce_My_Licences')
+} // END class_exists('SS_WC_My_Licences')
 
 /**
- * Returns the instance of WooCommerce_My_Licences to prevent the need to use globals.
+ * Returns the instance of SS_WC_My_Licences to prevent the need to use globals.
  *
  * @since  1.0.0
- * @return Plugin Name
+ * @return SS_WC_My_Licences
  */
-function WooCommerce_My_Licences() {
-	return WooCommerce_My_Licences::instance();
+function SS_WC_My_Licences() {
+	return SS_WC_My_Licences::instance();
 }
 
-// Global for backwards compatibility.
-$GLOBALS['woocommerce_my_licences'] = WooCommerce_My_Licences();
-
-?>
+// Run the plugin.
+SS_WC_My_Licences();

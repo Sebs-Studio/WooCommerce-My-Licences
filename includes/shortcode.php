@@ -1,25 +1,13 @@
 <?php
 /**
- * WC_My_Licence_Shortcode class.
+ * Class - SS_WC_My_Licence_Shortcode.
  *
- * @class    WC_My_Licence_Shortcode
- * @version  1.0.0
+ * @version  1.0.1
  * @package  WooCommerce My Licence/Classes
  * @category Class
  * @author   Sebs Studio
  */
-class WC_My_Licence_Shortcode {
-
-	/**
-	* Constructor
-	*
-	* @since  1.0.0
-	* @access public
-	* @return void
-	*/
-	public function __construct() {
-		//add_action( 'woocommerce_my_licences_init', array( $this, 'init' ) );
-	}
+class SS_WC_My_Licence_Shortcode {
 
 	/**
 	 * Init shortcode
@@ -61,11 +49,7 @@ class WC_My_Licence_Shortcode {
 	 * @return string
 	 */
 	public static function get_woocommerce_my_licences( $atts ) {
-		//global $woocommerce;
-
-		//return $woocommerce->WC_Shortcode()->shortcode_wrapper( array( __CLASS__, 'output' ), $atts );
 		return self::shortcode_wrapper( array( __CLASS__, 'output' ), $atts );
-		//return self::output( $atts );
 	}
 
 	/**
@@ -78,23 +62,22 @@ class WC_My_Licence_Shortcode {
 	public static function output( $atts ) {
 		global $woocommerce;
 
+		// Get attributes
+		extract( shortcode_atts( array(
+			'variables' => 'no',
+		), $atts ) );
+
 		if ( ! is_user_logged_in() ) {
 			wc_get_template( 'myaccount/form-login.php' );
 		} else {
-			$recent_orders = -1;
-
-			get_currentuserinfo();
-
 			wc_get_template(
 				'myaccount/my-licences.php', array(
-					'current_user'  => get_user_by( 'id', get_current_user_id() ),
-					'recent_orders' => $recent_orders
+					'variables' => 'no' == $variables ? 'no' : $variables
 				),
 				'',
-				WooCommerce_My_Licences()->template_path()
+				SS_WC_My_Licences()->template_path()
 			);
 
 		} // END if is_user_logged_in()
 	}
 }
-?>

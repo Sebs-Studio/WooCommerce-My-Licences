@@ -1,6 +1,6 @@
 ## WooCommerce My Licences
 
-[![Designed for WooCommerce](http://img.shields.io/badge/Designed%20for-WooCommerce-a46497.svg?style=flat)](http://woothemes.com/woocommerce/) [![GitHub license](https://img.shields.io/badge/license-GPLv3-blue.svg?style=flat)](https://raw.githubusercontent.com/Sebs-Studio/WooCommerce-My-Licences/master/license.txt) [![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg?style=flat)](https://github.com/Sebs-Studio/WooCommerce-My-Licences) [![Code Climate](https://codeclimate.com/github/Sebs-Studio/WooCommerce-My-Licences/badges/gpa.svg?style=flat)](https://codeclimate.com/github/Sebs-Studio/WooCommerce-My-Licences)
+[![Designed for WooCommerce](http://img.shields.io/badge/Designed%20for-WooCommerce-a46497.svg?style=flat)](http://woothemes.com/woocommerce/) [![GitHub license](https://img.shields.io/badge/license-GPLv3-blue.svg?style=flat)](https://raw.githubusercontent.com/Sebs-Studio/WooCommerce-My-Licences/master/license.txt) [![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg?style=flat)](https://github.com/Sebs-Studio/WooCommerce-My-Licences) [![Code Climate](https://codeclimate.com/github/Sebs-Studio/WooCommerce-My-Licences/badges/gpa.svg?style=flat)](https://codeclimate.com/github/Sebs-Studio/WooCommerce-My-Licences) [![WordPress](https://img.shields.io/wordpress/plugin/dt/woocommerce-my-licences.svg?style=flat)](https://wordpress.org/plugins/woocommerce-my-licences/) [![WordPress](https://img.shields.io/wordpress/v/woocommerce-my-licences.svg?style=flat)](https://wordpress.org/plugins/woocommerce-my-licences/)
 
 > ### Required to Work
 > This plugin requires the use of [WooCommerce Software Add-on](http://www.woothemes.com/products/software-add-on/)
@@ -12,12 +12,12 @@ With WooCommerce Software Add-on, each software product the customer has purchas
 To use this shortcode, simply place the shortcode on page and any software your customers have purchased will have access to the licence keys once logged in.
 
 ### Features
- * Table listing all product licence keys. [ Product Name | Licence Key | Software Version | Activations | Licence Type (Optional, requires custom setup to your personal needs) ]
- * Each licence key will list activated sites or instants along with a deactivation button
+ * Table listing all product licence keys. [ Product Name | Licence Key | Software Version | Activations | Licence Type ]
+ * Each licence key will list activated sites or instants along with a deactivation button.
  * See how many activations the licence key has left.
 
-### Contributing and reporting bugs
-You can contribute code to this plugin via GitHub: https://github.com/Sebs-Studio/WooCommerce-My-Licences and localizations via Transifex: https://www.transifex.com/projects/p/woocommerce-my-licences/
+## Contributing
+If you have a patch, or stumbled upon an issue with the plugin, you can contribute this back to the code. Please read the [contributor guidelines](https://github.com/Sebs-Studio/WooCommerce-My-Licences/blob/master/CONTRIBUTING.md) for more information how you can do this.
 
 ### Support
 Use the WordPress.org forums for [community support](https://wordpress.org/support/plugin/woocommerce-my-licences). If you spot a bug, you can of course log it on [Github](https://github.com/Sebs-Studio/WooCommerce-My-Licences/issues) instead where I can act upon it more efficiently.
