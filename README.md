@@ -16,7 +16,7 @@ To use this shortcode, simply place the shortcode on page and any software your 
  * Each licence key will list activated sites or instants along with a deactivation button.
  * See how many activations the licence key has left.
 
-## Contributing
+### Contributing
 If you have a patch, or stumbled upon an issue with the plugin, you can contribute this back to the code. Please read the [contributor guidelines](https://github.com/Sebs-Studio/WooCommerce-My-Licences/blob/master/CONTRIBUTING.md) for more information how you can do this.
 
 ### Support
