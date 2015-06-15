@@ -84,7 +84,7 @@ final class SS_WC_My_Licences {
 	 * @access public
 	 * @var    string
 	 */
-	public $version = "1.0.0";
+	public $version = "1.0.1";
 
 	/**
 	 * The WordPress version the plugin requires minumum.
